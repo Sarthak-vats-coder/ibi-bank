@@ -4,6 +4,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RegisterForm from "./Components/RegisterForm/RegisterForm";
 import UpdateForm from "./Components/UpdateForm/UpdateForm";
+import UserDashboard from "./Components/UserDashboard/UserDashboard";
 
 const App = () => {
   const [username, setUsername] = useState("");
@@ -12,6 +13,7 @@ const App = () => {
     <div>
       {/* <LoginForm /> */}
       <NavBar />
+      {/* <UserDashboard /> */}
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<LoginForm></LoginForm>}></Route>
@@ -22,6 +24,7 @@ const App = () => {
           ></Route>
 
           <Route path="/update" element={<UpdateForm />}></Route>
+          <Route path="/dashboard" element={<UserDashboard />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

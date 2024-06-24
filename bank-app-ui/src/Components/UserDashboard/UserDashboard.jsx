@@ -1,9 +1,26 @@
-import React from 'react'
+import axios from "axios";
+import React from "react";
+import "./UserDashboard.css";
 
 const UserDashboard = () => {
+  const GetAllUser = (event) => {
+    event.preventDefault();
+    axios({
+      method: "post",
+      url: "http://localhost:1025/banking-service/user-service/user/GetAllUser",
+    }).then(
+      (data) => console.log(data),
+      (error) => console.log(error)
+    );
+  };
   return (
-    <div>UserDashboard</div>
-  )
-}
+    <form onSubmit={GetAllUser}>
+      <div className="main-dashboard">
+        {" "}
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  );
+};
 
-export default UserDashboard
+export default UserDashboard;

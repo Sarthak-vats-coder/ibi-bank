@@ -9,6 +9,7 @@ const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [age, setAge] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("ROLE_CUSTOMER");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   var body = {
@@ -18,6 +19,7 @@ const RegisterForm = () => {
     email: email,
     age: age,
     password: password,
+    role: role,
   };
 
   const submitRegisterRequest = (event) => {
@@ -98,6 +100,16 @@ const RegisterForm = () => {
             onChange={(event) => setConfirmPassword(event.target.value)}
             required
           />
+        </div>
+        <div className="userInput">
+          <label>Role:</label>
+          <select
+            value={role}
+            onChange={(event) => setRole(event.target.value)}
+          >
+            <option value="ROLE_CUSTOMER">User</option>
+            <option value="ROLE_ADMIN">Admin</option>
+          </select>
         </div>
 
         <button type="submit">Login</button>

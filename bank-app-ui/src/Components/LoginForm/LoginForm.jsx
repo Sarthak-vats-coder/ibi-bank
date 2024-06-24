@@ -7,32 +7,43 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  var body = {
+    username: username,
+    password: password,
+  };
+
   const submitLoginRequest = (event) => {
     event.preventDefault();
-    axios
-      .get("http://localhost:1025/banking-service/authenticator/loginRequest", {
-        headers: {
-          username: username,
-          password: password,
-        },
-      })
-      .then(
-        (loginResponse) => {
-          let loginData = loginResponse.data;
-          axios.defaults.headers = {
-            username: loginData.username,
-            password: loginData.password,
-          };
-          localStorage.setItem("username", username);
-          localStorage.setItem("password", password);
-          localStorage.setItem("userID", loginResponse.data);
-          console.log(loginData);
-
-          window.location.href = "/update";
-        },
-        (error) => console.log(error)
-      );
+    axios({
+      method: "post",
+      url: "http://localhost:1025/banking-service/user-service/user/signIn",
+      data: body,
+    }).then(
+      (data) => console.log(data),
+      (error) => console.log(error)
+    );
   };
+
+  // const submitLoginRequest = (event) => {
+  //   event.preventDefault();
+  //   axios
+  //     .post("http://localhost:1025/banking-service/authenticator/signin", {
+  //       username,
+  //       password,
+  //     })
+  //     .then(
+  //       (loginResponse) => {
+  //         let loginData = loginResponse.data;
+  //         axios.defaults.headers = {
+  //           username: loginData.username,
+  //           password: loginData.password,
+  //         };
+
+  //         window.location.href = "/update";
+  //       },
+  //       (error) => console.log(error)
+  //     );
+  // };
 
   return (
     <div className="main-LoginForm">
