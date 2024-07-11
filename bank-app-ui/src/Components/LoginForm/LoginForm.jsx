@@ -13,38 +13,16 @@ const LoginForm = () => {
   };
 
   const submitLoginRequest = (event) => {
-    event.preventDefault();
     axios({
       method: "post",
-      url: "http://localhost:1025/banking-service/user-service/user/signIn",
+      url: "banking-service/user-service/user/signIn",
       data: body,
     }).then(
       (data) => console.log(data),
       (error) => console.log(error)
     );
+    event.preventDefault();
   };
-
-  // const submitLoginRequest = (event) => {
-  //   event.preventDefault();
-  //   axios
-  //     .post("http://localhost:1025/banking-service/authenticator/signin", {
-  //       username,
-  //       password,
-  //     })
-  //     .then(
-  //       (loginResponse) => {
-  //         let loginData = loginResponse.data;
-  //         axios.defaults.headers = {
-  //           username: loginData.username,
-  //           password: loginData.password,
-  //         };
-
-  //         window.location.href = "/update";
-  //       },
-  //       (error) => console.log(error)
-  //     );
-  // };
-
   return (
     <div className="main-LoginForm">
       <form onSubmit={submitLoginRequest} target="#">

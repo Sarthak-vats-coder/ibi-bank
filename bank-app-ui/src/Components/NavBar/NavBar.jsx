@@ -29,7 +29,7 @@ const NavBar = () => {
           </a>
         </li>
         <li className="navBaritems flexbox-left">
-          <a className="navBarItemsInner flexbox-left">
+          <a className="navBarItemsInner flexbox-left" href="/dashboard">
             <div className="navBarItemsInnerWrrapper flexbox">
               <IoHomeOutline />
             </div>

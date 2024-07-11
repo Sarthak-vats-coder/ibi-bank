@@ -5,15 +5,18 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RegisterForm from "./Components/RegisterForm/RegisterForm";
 import UpdateForm from "./Components/UpdateForm/UpdateForm";
 import UserDashboard from "./Components/UserDashboard/UserDashboard";
+import axios from "axios";
 
 const App = () => {
+  axios.default.withCredentials = true;
+  axios.defaults.baseURL = "https://localhost:8443";
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   return (
     <div>
-      {/* <LoginForm /> */}
-      <NavBar />
-      {/* <UserDashboard /> */}
+      <LoginForm />
+      {/* <NavBar /> */}
+      <UserDashboard />
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<LoginForm></LoginForm>}></Route>
