@@ -4,12 +4,7 @@ import "./UserDashboard.css";
 
 const UserDashboard = () => {
   const GetAllUser = (event) => {
-    fetch(
-      "https://localhost:8443/banking-service/user-service/user/GetAllUser",
-      {
-        credentials: "include",
-      }
-    ).then(
+    axios.get("/banking-service/user-service/user/GetAllUser").then(
       (data) => console.log(data),
       (error) => console.log(error)
     );

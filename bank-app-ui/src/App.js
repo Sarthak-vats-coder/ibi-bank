@@ -8,8 +8,8 @@ import UserDashboard from "./Components/UserDashboard/UserDashboard";
 import axios from "axios";
 
 const App = () => {
-  axios.default.withCredentials = true;
-  axios.defaults.baseURL = "https://localhost:8443";
+  axios.defaults.withCredentials = true;
+  axios.defaults.baseURL = "http://localhost:1025";
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   return (
@@ -21,10 +21,7 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<LoginForm></LoginForm>}></Route>
 
-          <Route
-            path="/register"
-            element={<RegisterForm></RegisterForm>}
-          ></Route>
+          <Route path="/register" element={<RegisterForm></RegisterForm>}></Route>
 
           <Route path="/update" element={<UpdateForm />}></Route>
           <Route path="/dashboard" element={<UserDashboard />}></Route>
